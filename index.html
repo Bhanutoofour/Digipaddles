@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DigiPaddles — We Shape Brands for Greatness</title>
 <meta name="description" content="DigiPaddles is a premium digital agency in Hyderabad specialising in web design, digital marketing, and brand identity.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080808'/%3E%3Cpath d='M7 23L7 13L18 13L18 9L25 16L18 23L18 19L10 19L10 23Z' fill='%23F4511E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -375,6 +376,40 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
   .res-grid,.ft{grid-template-columns:1fr;}
   .proc-steps{grid-template-columns:1fr;}
 }
+
+/* ── CLIENT LOGO STRIP (Home) ── */
+.clients-strip{padding:72px 6%;background:var(--wh);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);}
+.clients-strip-hd{text-align:center;margin-bottom:44px;}
+.clients-strip-hd p{font-size:0.72rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--gy2);}
+.logo-scroll{overflow:hidden;position:relative;}
+.logo-scroll::before,.logo-scroll::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+.logo-scroll::before{left:0;background:linear-gradient(to right,#fff,transparent);}
+.logo-scroll::after{right:0;background:linear-gradient(to left,#fff,transparent);}
+.logo-track{display:flex;gap:56px;align-items:center;animation:logoScroll 22s linear infinite;white-space:nowrap;}
+.logo-track:hover{animation-play-state:paused;}
+@keyframes logoScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.cl-logo{flex-shrink:0;opacity:0.55;transition:opacity 0.3s,transform 0.3s;filter:grayscale(100%);}
+.cl-logo:hover{opacity:1;filter:grayscale(0%);transform:scale(1.05);}
+
+/* ── CLIENTS PAGE ── */
+.clients-hero{padding:160px 6% 80px;background:var(--dk);position:relative;overflow:hidden;}
+.clients-hero h1{font-size:clamp(2.8rem,5vw,4.8rem);font-weight:900;color:#fff;line-height:1.05;max-width:700px;}
+.clients-hero p{font-size:1rem;color:rgba(255,255,255,0.4);line-height:1.9;margin-top:18px;max-width:520px;}
+.clients-grid-sec{padding:100px 6%;background:var(--cr);}
+.cl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px;}
+.cl-card{background:var(--wh);border-radius:20px;padding:44px 36px;border:1px solid var(--bd);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);text-align:center;position:relative;overflow:hidden;}
+.cl-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--or2));transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.cl-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1);border-color:transparent;}
+.cl-card:hover::before{transform:scaleX(1);}
+.cl-card-logo{height:72px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
+.cl-card-logo svg{max-height:60px;max-width:180px;}
+.cl-card-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;margin-bottom:6px;color:var(--dk);}
+.cl-card-industry{font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gy2);}
+.cl-card-loc{font-size:0.78rem;color:var(--gy);margin-top:6px;display:flex;align-items:center;justify-content:center;gap:5px;}
+.cl-card-url{display:inline-flex;align-items:center;gap:5px;margin-top:16px;font-size:0.76rem;font-weight:700;color:var(--or);text-decoration:none;}
+.cl-card-url:hover{text-decoration:underline;}
+@media(max-width:768px){.cl-grid{grid-template-columns:1fr 1fr;}.logo-track{gap:36px;}}
+@media(max-width:480px){.cl-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -425,6 +460,7 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
     <a id="nl-about" onclick="go('about')">About Us</a>
     <a id="nl-web" onclick="go('web')">Web Design</a>
     <a id="nl-dm" onclick="go('dm')">Digital Marketing</a>
+    <a id="nl-clients" onclick="go('clients')">Clients</a>
     <a id="nl-blog" onclick="go('blog')">Blogs</a>
   </div>
   <button class="ncta" onclick="go('contact')">Get in Touch</button>
@@ -435,6 +471,7 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
   <a onclick="go('about');tmob()">About Us</a>
   <a onclick="go('web');tmob()">Web Design</a>
   <a onclick="go('dm');tmob()">Digital Marketing</a>
+  <a onclick="go('clients');tmob()">Clients</a>
   <a onclick="go('blog');tmob()">Blogs</a>
   <a onclick="go('contact');tmob()">Contact</a>
 </div>
@@ -506,6 +543,7 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
     <div class="scroll-ind"><span>Scroll</span><div class="scroll-line"></div></div>
   </section>
 
+
   <div class="mq"><div class="mq-tr">
     <span class="mq-it">Web Design</span><span class="mq-dot"></span><span class="mq-it">React & Next.js</span><span class="mq-dot"></span><span class="mq-it">Digital Marketing</span><span class="mq-dot"></span><span class="mq-it">SEO Optimisation</span><span class="mq-dot"></span><span class="mq-it">Brand Identity</span><span class="mq-dot"></span><span class="mq-it">Social Media</span><span class="mq-dot"></span><span class="mq-it">UI / UX Design</span><span class="mq-dot"></span><span class="mq-it">Cloud Hosting</span><span class="mq-dot"></span>
     <span class="mq-it">Web Design</span><span class="mq-dot"></span><span class="mq-it">React & Next.js</span><span class="mq-dot"></span><span class="mq-it">Digital Marketing</span><span class="mq-dot"></span><span class="mq-it">SEO Optimisation</span><span class="mq-dot"></span><span class="mq-it">Brand Identity</span><span class="mq-dot"></span><span class="mq-it">Social Media</span><span class="mq-dot"></span><span class="mq-it">UI / UX Design</span><span class="mq-dot"></span><span class="mq-it">Cloud Hosting</span><span class="mq-dot"></span>
@@ -517,12 +555,12 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
     <svg style="position:absolute;top:0;right:0;width:400px;height:400px;opacity:0.03;pointer-events:none;" viewBox="0 0 400 400"><circle cx="350" cy="50" r="300" fill="none" stroke="#F4511E" stroke-width="2"/><circle cx="350" cy="50" r="200" fill="none" stroke="#F4511E" stroke-width="1.5"/><circle cx="350" cy="50" r="100" fill="none" stroke="#F4511E" stroke-width="1"/></svg>
     <div class="rv" style="max-width:680px;"><div class="tl">What We Offer</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);font-weight:900;">Our <em>Expertise</em></h2><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;">From pixel-perfect websites to data-driven campaigns — everything under one roof.</p></div>
     <div class="svc-grid" style="margin-top:64px;">
-      <div class="sc" onclick="go('web')"><span class="scn">01</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div><h3>Website Design</h3><p>Stunning, conversion-focused websites built with React and Next.js — not templates.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-      <div class="sc" onclick="go('dm')"><span class="scn">02</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Digital Marketing</h3><p>ROI-focused campaigns across Google, Meta, and beyond — data-led, results-driven.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-      <div class="sc"><span class="scn">03</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>SEO Optimisation</h3><p>Rank higher, get found faster. Sustainable organic growth that compounds over time.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-      <div class="sc"><span class="scn">04</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4z"/></svg></div><h3>Brand Identity</h3><p>Logos, colour systems, and guidelines that make you unforgettable and unmistakable.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-      <div class="sc"><span class="scn">05</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><h3>Social Media</h3><p>Thumb-stopping content and community management that builds loyal audiences.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-      <div class="sc"><span class="scn">06</span><div class="sc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>UI / UX Design</h3><p>Intuitive interfaces grounded in user research — beautiful and functional in equal measure.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc" onclick="go('web')"><span class="scn">01</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M4 16h40" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="12" r="1.5" fill="currentColor"/><circle cx="15" cy="12" r="1.5" fill="currentColor"/><circle cx="20" cy="12" r="1.5" fill="currentColor"/><path d="M16 24l4 4-4 4M26 32h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 40h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Website Design</h3><p>Stunning, conversion-focused websites built with React and Next.js — not templates.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc" onclick="go('dm')"><span class="scn">02</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><path d="M8 34L16 20L22 27L30 14L40 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="34" r="3" fill="currentColor"/><path d="M4 42h40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/><path d="M6 8h8M6 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div><h3>Digital Marketing</h3><p>ROI-focused campaigns across Google, Meta, and beyond — data-led, results-driven.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc"><span class="scn">03</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="2"/><path d="M30 30L42 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M14 20h12M20 14v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>SEO Optimisation</h3><p>Rank higher, get found faster. Sustainable organic growth that compounds over time.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc"><span class="scn">04</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><polygon points="24,6 29,18 42,18 32,26 36,38 24,30 12,38 16,26 6,18 19,18" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Brand Identity</h3><p>Logos, colour systems, and guidelines that make you unforgettable and unmistakable.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc"><span class="scn">05</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><circle cx="12" cy="24" r="4" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="36" r="4" stroke="currentColor" stroke-width="2"/><path d="M16 22L32 14M16 26L32 34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Social Media</h3><p>Thumb-stopping content and community management that builds loyal audiences.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+      <div class="sc"><span class="scn">06</span><div class="sc-ico"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28"><rect x="6" y="10" width="36" height="26" rx="3" stroke="currentColor" stroke-width="2"/><rect x="12" y="16" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M28 18h8M28 22h6M28 26h4M12 30h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>UI / UX Design</h3><p>Intuitive interfaces grounded in user research — beautiful and functional in equal measure.</p><div class="sc-arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
     </div>
   </section>
 
@@ -595,6 +633,94 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
     </div>
   </section>
 
+  <!-- CLIENT LOGO STRIP -->
+  <div class="clients-strip">
+    <div class="clients-strip-hd rv"><p>Trusted by brands across the globe</p></div>
+    <div class="logo-scroll">
+      <div class="logo-track">
+        <!-- Set 1 -->
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="18" width="24" height="24" rx="4" fill="#e63946"/>
+  <path d="M8 30 L14 24 L20 30 L14 36Z" fill="white"/>
+  <text x="32" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#1a1a1a" letter-spacing="-0.5">Express</text>
+  <text x="128" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#e63946" letter-spacing="-0.5">luv</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="22" cy="30" r="16" fill="#FF6B9D" opacity="0.15"/>
+  <text x="10" y="35" font-family="Arial,sans-serif" font-size="20" fill="#FF6B9D">🎂</text>
+  <text x="44" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#1a1a1a" letter-spacing="-0.3">Occasion</text>
+  <text x="148" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#FF6B9D" letter-spacing="-0.3">kart</text>
+</svg></div>
+        <div class="cl-logo"><img src="data:image/png;base64,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" style="height:48px;width:auto;object-fit:contain;" alt="Vihara Courtyard"></div>
+        <div class="cl-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0066CC"/><stop offset="100%" stop-color="#00AAFF"/></linearGradient></defs>
+  <rect x="2" y="12" width="38" height="36" rx="6" fill="url(#tg)"/>
+  <text x="8" y="38" font-family="monospace" font-size="18" font-weight="900" fill="white">&lt;/&gt;</text>
+  <text x="48" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#0066CC" letter-spacing="-0.5">Tekspot</text>
+  <text x="134" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#00AAFF" letter-spacing="-0.5">EDU</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="24" width="28" height="12" rx="6" fill="#222"/>
+  <text x="38" y="37" font-family="Georgia,serif" font-size="17" font-weight="700" fill="#111" letter-spacing="0.2">The <tspan font-style="italic" fill="#F4511E">Hyphen</tspan> Konnect</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="28" cy="30" r="18" fill="#F4A030" opacity="0.15"/>
+  <circle cx="28" cy="30" r="14" fill="none" stroke="#F4A030" stroke-width="2"/>
+  <circle cx="28" cy="30" r="8" fill="#F4A030" opacity="0.4"/>
+  <text x="54" y="28" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#1a1a1a">The Dosa</text>
+  <text x="54" y="46" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#F4A030">Place</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1B4F8A"/><stop offset="100%" stop-color="#2E7DD1"/></linearGradient></defs>
+  <path d="M22 10 L36 16 L36 32 C36 40 22 48 22 48 C22 48 8 40 8 32 L8 16 Z" fill="url(#ig)"/>
+  <path d="M16 29 L20 33 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="44" y="29" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#1B4F8A" letter-spacing="0.3">INSURE</text>
+  <text x="44" y="46" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2E7DD1" letter-spacing="0.3">WITH SRI</text>
+</svg></div>
+        <!-- Set 2 duplicate for seamless loop -->
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="18" width="24" height="24" rx="4" fill="#e63946"/>
+  <path d="M8 30 L14 24 L20 30 L14 36Z" fill="white"/>
+  <text x="32" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#1a1a1a" letter-spacing="-0.5">Express</text>
+  <text x="128" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#e63946" letter-spacing="-0.5">luv</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="22" cy="30" r="16" fill="#FF6B9D" opacity="0.15"/>
+  <text x="10" y="35" font-family="Arial,sans-serif" font-size="20" fill="#FF6B9D">🎂</text>
+  <text x="44" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#1a1a1a" letter-spacing="-0.3">Occasion</text>
+  <text x="148" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#FF6B9D" letter-spacing="-0.3">kart</text>
+</svg></div>
+        <div class="cl-logo"><img src="data:image/png;base64,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" style="height:48px;width:auto;object-fit:contain;" alt="Vihara Courtyard"></div>
+        <div class="cl-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0066CC"/><stop offset="100%" stop-color="#00AAFF"/></linearGradient></defs>
+  <rect x="2" y="12" width="38" height="36" rx="6" fill="url(#tg)"/>
+  <text x="8" y="38" font-family="monospace" font-size="18" font-weight="900" fill="white">&lt;/&gt;</text>
+  <text x="48" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#0066CC" letter-spacing="-0.5">Tekspot</text>
+  <text x="134" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#00AAFF" letter-spacing="-0.5">EDU</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="24" width="28" height="12" rx="6" fill="#222"/>
+  <text x="38" y="37" font-family="Georgia,serif" font-size="17" font-weight="700" fill="#111" letter-spacing="0.2">The <tspan font-style="italic" fill="#F4511E">Hyphen</tspan> Konnect</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="28" cy="30" r="18" fill="#F4A030" opacity="0.15"/>
+  <circle cx="28" cy="30" r="14" fill="none" stroke="#F4A030" stroke-width="2"/>
+  <circle cx="28" cy="30" r="8" fill="#F4A030" opacity="0.4"/>
+  <text x="54" y="28" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#1a1a1a">The Dosa</text>
+  <text x="54" y="46" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#F4A030">Place</text>
+</svg></div>
+        <div class="cl-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1B4F8A"/><stop offset="100%" stop-color="#2E7DD1"/></linearGradient></defs>
+  <path d="M22 10 L36 16 L36 32 C36 40 22 48 22 48 C22 48 8 40 8 32 L8 16 Z" fill="url(#ig)"/>
+  <path d="M16 29 L20 33 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="44" y="29" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#1B4F8A" letter-spacing="0.3">INSURE</text>
+  <text x="44" y="46" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2E7DD1" letter-spacing="0.3">WITH SRI</text>
+</svg></div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- TESTIMONIALS -->
   <section class="testi">
     <div class="rv"><div class="tl">Client Love</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">What our clients <em>say</em></h2></div>
@@ -659,12 +785,12 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
   <section style="padding:120px 6%;">
     <div class="rv"><div class="tl">What Drives Us</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">Our Core <em>Values</em></h2></div>
     <div class="val-grid">
-      <div class="vc rv d1"><div class="vc-ic">🎯</div><h3>Results-First</h3><p>Every decision guided by one question: will this move the needle for our client?</p></div>
-      <div class="vc rv d2"><div class="vc-ic">💎</div><h3>Quality Always</h3><p>We never ship anything we're not proud of. Excellence is our baseline, not a bonus.</p></div>
-      <div class="vc rv d3"><div class="vc-ic">🤝</div><h3>True Partnership</h3><p>We work with you, not for you. Your success is our success — we're all in.</p></div>
-      <div class="vc rv d1"><div class="vc-ic">🔥</div><h3>Bold Creativity</h3><p>Safe and average have no place here. We push boundaries to create work that stands out.</p></div>
-      <div class="vc rv d2"><div class="vc-ic">⚡</div><h3>Speed & Agility</h3><p>We move fast without cutting corners — on time, every time, without exception.</p></div>
-      <div class="vc rv d3"><div class="vc-ic">📈</div><h3>Data-Driven</h3><p>Beautiful work backed by real insights. We test, learn, and optimise relentlessly.</p></div>
+      <div class="vc rv d1"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#F4511E"/></svg></div><h3>Results-First</h3><p>Every decision guided by one question: will this move the needle for our client?</p></div>
+      <div class="vc rv d2"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20M6 3l4 6M18 3l-4 6"/></svg></div><h3>Quality Always</h3><p>We never ship anything we're not proud of. Excellence is our baseline, not a bonus.</p></div>
+      <div class="vc rv d3"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h3>True Partnership</h3><p>We work with you, not for you. Your success is our success — we're all in.</p></div>
+      <div class="vc rv d1"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 6 4 10 4 14a8 8 0 0016 0c0-4-2.5-8-8-12z"/><path d="M12 22v-4M9 18c0-1.5 1.5-3 3-3s3 1.5 3 3"/></svg></div><h3>Bold Creativity</h3><p>Safe and average have no place here. We push boundaries to create work that stands out.</p></div>
+      <div class="vc rv d2"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Speed & Agility</h3><p>We move fast without cutting corners — on time, every time, without exception.</p></div>
+      <div class="vc rv d3"><div class="vc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-4 4"/></svg></div><h3>Data-Driven</h3><p>Beautiful work backed by real insights. We test, learn, and optimise relentlessly.</p></div>
     </div>
   </section>
 
@@ -719,90 +845,183 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
   <section class="tech-sec">
     <div class="rv"><div class="tl">Technology</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">The best <em>tools</em> for the job</h2><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;">We build fully custom websites — no templates, no page builders. Just clean, hand-crafted code that performs.</p></div>
     <div class="tech-grid">
-      <div class="tec rv d1"><span class="tec-logo">⚛️</span><h4>React.js</h4><p>Fast, interactive, component-driven UIs — silky smooth user experiences.</p><span class="tec-badge pro">Our Speciality</span></div>
-      <div class="tec rv d2"><span class="tec-logo">▲</span><h4>Next.js</h4><p>Server-side rendering, blazing speed, and built-in SEO from the ground up.</p><span class="tec-badge pro">Performance</span></div>
-      <div class="tec rv d3"><span class="tec-logo">🟢</span><h4>Node.js</h4><p>Scalable back-ends, REST APIs, and real-time features built to last.</p><span class="tec-badge std">Back-End</span></div>
-      <div class="tec rv d4"><span class="tec-logo">🎨</span><h4>Figma</h4><p>Every project starts with a full UI prototype you approve before we build.</p><span class="tec-badge pro">Design First</span></div>
-      <div class="tec rv d1"><span class="tec-logo">🛒</span><h4>Custom E-Commerce</h4><p>Bespoke online stores with Stripe, Razorpay, and custom checkout flows.</p><span class="tec-badge pro">E-Commerce</span></div>
-      <div class="tec rv d2"><span class="tec-logo">📱</span><h4>Mobile-First</h4><p>Every site is designed for mobile first — then perfected for all screens.</p><span class="tec-badge std">Responsive</span></div>
-      <div class="tec rv d3"><span class="tec-logo">🔒</span><h4>Security & SSL</h4><p>SSL, DDoS protection, secure auth, and regular security audits built in.</p><span class="tec-badge std">Built-in</span></div>
-      <div class="tec rv d4"><span class="tec-logo">🚀</span><h4>Vercel / AWS</h4><p>Deployed on Vercel and AWS for 99.9% uptime and sub-1s load times.</p><span class="tec-badge pro">Optimised</span></div>
+      <div class="tec rv d1"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="4" fill="#61DAFB"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61DAFB" stroke-width="2" fill="none"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61DAFB" stroke-width="2" fill="none" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61DAFB" stroke-width="2" fill="none" transform="rotate(120 24 24)"/></svg></span><h4>React.js</h4><p>Fast, interactive, component-driven UIs — silky smooth user experiences.</p><span class="tec-badge pro">Our Speciality</span></div>
+      <div class="tec rv d2"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><polygon points="24,6 44,42 4,42" fill="#111" stroke="#fff" stroke-width="0"/><polygon points="24,6 44,42 4,42" fill="white" opacity="0.9"/><polygon points="24,18 34,38 14,38" fill="#111"/></svg></span><h4>Next.js</h4><p>Server-side rendering, blazing speed, and built-in SEO from the ground up.</p><span class="tec-badge pro">Performance</span></div>
+      <div class="tec rv d3"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" fill="#3C873A"/><path d="M16 18c0-4.4 3.6-8 8-8 3 0 5.6 1.6 7 4M32 28c0 4.4-3.6 8-8 8-3 0-5.6-1.6-7-4" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="24" r="4" fill="white"/></svg></span><h4>Node.js</h4><p>Scalable back-ends, REST APIs, and real-time features built to last.</p><span class="tec-badge std">Back-End</span></div>
+      <div class="tec rv d4"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" fill="#F24E1E" opacity="0.15" stroke="#F24E1E" stroke-width="2"/><rect x="12" y="12" width="10" height="10" rx="2" fill="#F24E1E" opacity="0.7"/><rect x="26" y="12" width="10" height="10" rx="2" fill="#A259FF" opacity="0.7"/><rect x="12" y="26" width="10" height="10" rx="2" fill="#1ABCFE" opacity="0.7"/><rect x="26" y="26" width="10" height="10" rx="2" fill="#0ACF83" opacity="0.7"/></svg></span><h4>Figma</h4><p>Every project starts with a full UI prototype you approve before we build.</p><span class="tec-badge pro">Design First</span></div>
+      <div class="tec rv d1"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><path d="M6 8h4l5 20h18l4-14H14" stroke="#F4511E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="34" r="3" fill="#F4511E"/><circle cx="33" cy="34" r="3" fill="#F4511E"/></svg></span><h4>Custom E-Commerce</h4><p>Bespoke online stores with Stripe, Razorpay, and custom checkout flows.</p><span class="tec-badge pro">E-Commerce</span></div>
+      <div class="tec rv d2"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="14" y="4" width="20" height="40" rx="4" stroke="#555" stroke-width="2"/><path d="M14 36h20M14 12h20" stroke="#555" stroke-width="1.5"/><circle cx="24" cy="40" r="2" fill="#555"/></svg></span><h4>Mobile-First</h4><p>Every site is designed for mobile first — then perfected for all screens.</p><span class="tec-badge std">Responsive</span></div>
+      <div class="tec rv d3"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="10" y="22" width="28" height="20" rx="4" stroke="#27ae60" stroke-width="2"/><path d="M16 22V16a8 8 0 0116 0v6" stroke="#27ae60" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="32" r="3" fill="#27ae60"/><path d="M24 35v3" stroke="#27ae60" stroke-width="2" stroke-linecap="round"/></svg></span><h4>Security & SSL</h4><p>SSL, DDoS protection, secure auth, and regular security audits built in.</p><span class="tec-badge std">Built-in</span></div>
+      <div class="tec rv d4"><span class="tec-logo"><svg width="36" height="36" viewBox="0 0 48 48" fill="none"><path d="M24 6C24 6 34 14 34 26c0 6-4.5 10-10 10S14 32 14 26C14 14 24 6 24 6z" stroke="#F4511E" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="24" r="4" stroke="#F4511E" stroke-width="2"/><path d="M18 36l-4 6M30 36l4 6" stroke="#F4511E" stroke-width="2" stroke-linecap="round"/></svg></span><h4>Vercel / AWS</h4><p>Deployed on Vercel and AWS for 99.9% uptime and sub-1s load times.</p><span class="tec-badge pro">Optimised</span></div>
     </div>
   </section>
 
-  <section style="padding:120px 6%;">
-    <div class="rv"><div class="tl">Pricing</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">Simple, transparent <em>packages</em></h2><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;">No surprises. No hidden fees. Just honest pricing for exceptional work.</p></div>
-    <div class="pkg-grid">
-      <div class="pk rv d1">
-        <div class="pk-nm">Starter</div>
-        <div class="pk-pr">₹15K <span>/ project</span></div>
-        <p class="pk-ds">Perfect for small businesses and startups ready to make their mark online.</p>
-        <ul class="pk-fts"><li>5-page fully custom website</li><li>Mobile-responsive design</li><li>Basic SEO setup</li><li>Contact form integration</li><li>1 month support</li></ul>
-        <button class="bo" style="width:100%;justify-content:center;" onclick="go('contact')">Get Started</button>
+  <section style="padding:120px 6%;background:var(--cr);">
+    <div class="rv"><div class="tl">How We Engage</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">Our <em>Approach</em> to Every Project</h2><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;max-width:600px;">We don't do one-size-fits-all. Every engagement is fully custom — scoped, priced, and executed around your specific goals.</p></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:64px;">
+
+      <div style="background:var(--wh);border-radius:22px;padding:44px;border:1px solid var(--bd);position:relative;overflow:hidden;transition:all 0.3s;" class="rv d1 approach-card">
+        <div style="position:absolute;top:0;right:0;width:120px;height:120px;pointer-events:none;">
+          <svg viewBox="0 0 120 120" fill="none"><circle cx="120" cy="0" r="80" fill="rgba(244,81,30,0.04)"/></svg>
+        </div>
+        <div style="width:56px;height:56px;background:rgba(244,81,30,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M8 4v16M2 12h6"/><path d="M14 9h4M14 13h4M14 17h2"/></svg>
+        </div>
+        <h3 style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Discovery & Strategy</h3>
+        <p style="font-size:0.85rem;color:var(--gy);line-height:1.85;margin-bottom:22px;">We begin every project with a deep-dive session — understanding your business, audience, competitors, and goals before a single pixel is designed.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Brand & audience audit</li>
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Competitor benchmarking</li>
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Clear KPI & goal setting</li>
+        </ul>
       </div>
-      <div class="pk feat rv d2">
-        <div class="pk-badge">Most Popular</div>
-        <div class="pk-nm">Professional</div>
-        <div class="pk-pr">₹35K <span>/ project</span></div>
-        <p class="pk-ds">For growing businesses that need a powerful, feature-rich online presence.</p>
-        <ul class="pk-fts"><li>10-page custom React website</li><li>Advanced UI/UX design</li><li>Full SEO optimisation</li><li>Blog / CMS integration</li><li>Speed optimisation</li><li>3 months support</li></ul>
-        <button class="bp" style="width:100%;justify-content:center;" onclick="go('contact')">Get Started →</button>
+
+      <div style="background:var(--wh);border-radius:22px;padding:44px;border:1px solid var(--bd);position:relative;overflow:hidden;transition:all 0.3s;" class="rv d2 approach-card">
+        <div style="width:56px;height:56px;background:rgba(244,81,30,0.08);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/><path d="m15 5 3 3"/></svg>
+        </div>
+        <h3 style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;">Design & Prototype</h3>
+        <p style="font-size:0.85rem;color:var(--gy);line-height:1.85;margin-bottom:22px;">Before any code is written, we create full Figma prototypes for your review and approval — so you see exactly what you're getting before we build it.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Full Figma UI prototype</li>
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Mobile + desktop layouts</li>
+          <li style="font-size:0.82rem;color:var(--dk);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Unlimited revisions before dev</li>
+        </ul>
       </div>
-      <div class="pk rv d3">
-        <div class="pk-nm">Enterprise</div>
-        <div class="pk-pr">Custom</div>
-        <p class="pk-ds">For established businesses needing a fully custom, scalable web solution.</p>
-        <ul class="pk-fts"><li>Unlimited pages</li><li>Next.js / full-stack app</li><li>Custom integrations & API</li><li>Performance audit</li><li>Dedicated account manager</li><li>Ongoing maintenance</li></ul>
-        <button class="bo" style="width:100%;justify-content:center;" onclick="go('contact')">Let's Talk</button>
+
+      <div style="background:var(--dk);border-radius:22px;padding:44px;border:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:all 0.3s;" class="rv d3 approach-card">
+        <div style="width:56px;height:56px;background:rgba(244,81,30,0.12);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="2" x2="12" y2="22" opacity="0.4"/></svg>
+        </div>
+        <h3 style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;color:#fff;">Build & Develop</h3>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.85;margin-bottom:22px;">Hand-crafted React & Next.js code — no templates, no WordPress, no shortcuts. Clean, fast, and built to scale.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+          <li style="font-size:0.82rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> React / Next.js development</li>
+          <li style="font-size:0.82rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Performance & SEO optimised</li>
+          <li style="font-size:0.82rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:9px;"><span style="color:var(--or);font-weight:900;">→</span> Weekly progress updates</li>
+        </ul>
       </div>
+
+      <div style="background:linear-gradient(135deg,var(--or),#d93e10);border-radius:22px;padding:44px;position:relative;overflow:hidden;transition:all 0.3s;" class="rv d4 approach-card">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:30px 30px;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="width:56px;height:56px;background:rgba(255,255,255,0.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;color:#fff;">Launch & Grow</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:22px;">We don't disappear after launch. From post-launch support to ongoing marketing campaigns — we're your long-term growth partner.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+            <li style="font-size:0.82rem;color:#fff;display:flex;align-items:center;gap:9px;"><span style="font-weight:900;">→</span> Deployment & monitoring</li>
+            <li style="font-size:0.82rem;color:#fff;display:flex;align-items:center;gap:9px;"><span style="font-weight:900;">→</span> Post-launch support</li>
+            <li style="font-size:0.82rem;color:#fff;display:flex;align-items:center;gap:9px;"><span style="font-weight:900;">→</span> Ongoing growth retainer</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+    <style>.approach-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.09);}</style>
   </section>
 
   <section style="background:var(--dk);padding:120px 6%;" id="portfolio-sec">
     <div class="rv"><div class="tl" style="color:rgba(255,255,255,0.3);">Our Work</div><h2 style="margin-top:14px;color:#fff;font-size:clamp(2rem,3.8vw,3.2rem);">Recent <em>Projects</em></h2></div>
     <div class="port-grid">
+
       <div class="pi rv d1">
-        <div class="pb" style="background:linear-gradient(135deg,#1a1a2e,#e84393);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><circle cx="200" cy="150" r="120" fill="none" stroke="white" stroke-width="2"/><circle cx="200" cy="150" r="80" fill="none" stroke="white" stroke-width="1.5"/><line x1="80" y1="150" x2="320" y2="150" stroke="white" stroke-width="1"/><line x1="200" y1="30" x2="200" y2="270" stroke="white" stroke-width="1"/></svg>
-          🏥
+        <div class="pb" style="background:linear-gradient(135deg,#1a0a0a,#8B0000);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <path d="M80 240 Q200 60 320 240" stroke="white" stroke-width="2" fill="none"/>
+            <path d="M60 240 Q200 40 340 240" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="200" cy="140" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <path d="M140 200 L200 100 L260 200" fill="white" opacity="0.08"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M10 45 Q30 10 50 45" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M20 45 Q30 20 40 45" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">Healthcare</span><h4>Medical Brand Website</h4><p>React · Next.js · SEO</p></div>
+        <div class="po"><span class="po-tag">Gifting</span><h4>ExpressLuv</h4><p>Brand Identity · Web Design · Vancouver</p></div>
       </div>
+
       <div class="pi rv d2">
-        <div class="pb" style="background:linear-gradient(135deg,#0f2027,#2c5364);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><rect x="60" y="60" width="280" height="180" fill="none" stroke="white" stroke-width="2" rx="8"/><line x1="60" y1="100" x2="340" y2="100" stroke="white" stroke-width="1"/><circle cx="80" cy="80" r="6" fill="white" opacity="0.5"/><circle cx="100" cy="80" r="6" fill="white" opacity="0.5"/><circle cx="120" cy="80" r="6" fill="white" opacity="0.5"/></svg>
-          📚
+        <div class="pb" style="background:linear-gradient(135deg,#1a0820,#FF6B9D);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <circle cx="200" cy="150" r="100" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <circle cx="200" cy="150" r="60" stroke="white" stroke-width="1" fill="none" opacity="0.2"/>
+            <path d="M120 230 Q200 80 280 230" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="24" r="16" stroke="white" stroke-width="2.5" fill="none"/>
+            <path d="M14 50 Q30 38 46 50" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M20 24 L26 30 L40 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">Publishing</span><h4>Author Portfolio</h4><p>Personal Brand · Branding</p></div>
+        <div class="po"><span class="po-tag">Celebrations</span><h4>OccasionKart</h4><p>E-Commerce · Branding · Hyderabad</p></div>
       </div>
+
       <div class="pi rv d3">
-        <div class="pb" style="background:linear-gradient(135deg,#614385,#516395);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><polygon points="200,30 350,120 350,210 200,270 50,210 50,120" fill="none" stroke="white" stroke-width="2"/><polygon points="200,70 310,140 310,200 200,240 90,200 90,140" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/></svg>
-          🧵
+        <div class="pb" style="background:linear-gradient(135deg,#0d1f0d,#2D5016);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <rect x="80" y="60" width="240" height="180" rx="12" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/>
+            <path d="M140 240 L200 80 L260 240" stroke="white" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M160 240 L200 120 L240 240" stroke="white" stroke-width="1.5" fill="none" opacity="0.25"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M10 50 L30 10 L50 50Z" stroke="white" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+            <path d="M20 50 L30 24 L40 50Z" fill="white" opacity="0.25"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">E-Commerce</span><h4>Kalaneca Handlooms</h4><p>Next.js · Stripe · Identity</p></div>
+        <div class="po"><span class="po-tag">Real Estate</span><h4>Vihara Courtyard</h4><p>Web Design · Brand · vihara.homes</p></div>
       </div>
+
       <div class="pi rv d1">
-        <div class="pb" style="background:linear-gradient(135deg,#134e5e,#71b280);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><path d="M50 250 L100 150 L160 200 L220 100 L280 170 L340 80" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="340" cy="80" r="8" fill="white" opacity="0.6"/></svg>
-          💼
+        <div class="pb" style="background:linear-gradient(135deg,#001233,#0066CC);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <rect x="60" y="80" width="280" height="160" rx="8" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/>
+            <line x1="60" y1="120" x2="340" y2="120" stroke="white" stroke-width="1" opacity="0.3"/>
+            <path d="M100 200 L140 155 L180 175 L230 130 L280 160 L320 120" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <polyline points="12,46 22,30 32,38 46,18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="46" cy="18" r="4" fill="white"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">Corporate</span><h4>Cerebrus Group</h4><p>React · Web Design · SEO</p></div>
+        <div class="po"><span class="po-tag">EdTech</span><h4>TekspotEDU</h4><p>Web Platform · UI/UX · Bangalore</p></div>
       </div>
+
       <div class="pi rv d2">
-        <div class="pb" style="background:linear-gradient(135deg,#232526,#414345);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><rect x="80" y="80" width="240" height="140" rx="12" fill="none" stroke="white" stroke-width="2"/><rect x="110" y="110" width="80" height="50" rx="6" fill="white" opacity="0.1"/><rect x="210" y="110" width="80" height="50" rx="6" fill="white" opacity="0.1"/><rect x="110" y="175" width="180" height="20" rx="4" fill="white" opacity="0.08"/></svg>
-          🚀
+        <div class="pb" style="background:linear-gradient(135deg,#0a0a0a,#333);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <line x1="50" y1="150" x2="350" y2="150" stroke="white" stroke-width="3" opacity="0.3"/>
+            <circle cx="200" cy="150" r="50" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/>
+            <path d="M100 100 Q200 50 300 100" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <path d="M100 200 Q200 250 300 200" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <line x1="10" y1="30" x2="50" y2="30" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="30" cy="30" r="8" fill="none" stroke="white" stroke-width="2"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">SaaS</span><h4>Tech Startup App</h4><p>React · Node.js · UI/UX</p></div>
+        <div class="po"><span class="po-tag">Consulting</span><h4>The Hyphen Konnect</h4><p>Brand Identity · Digital Strategy</p></div>
       </div>
+
       <div class="pi rv d3">
-        <div class="pb" style="background:linear-gradient(135deg,#c94b4b,#4b134f);">
-          <svg class="pb-gfx" viewBox="0 0 400 300"><circle cx="130" cy="150" r="60" fill="none" stroke="white" stroke-width="2"/><circle cx="270" cy="150" r="60" fill="none" stroke="white" stroke-width="2"/><circle cx="200" cy="100" r="60" fill="none" stroke="white" stroke-width="2"/></svg>
-          🛍️
+        <div class="pb" style="background:linear-gradient(135deg,#1a0800,#F4A030);">
+          <svg class="pb-gfx" viewBox="0 0 400 300" fill="none">
+            <ellipse cx="200" cy="180" rx="140" ry="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <ellipse cx="200" cy="160" rx="100" ry="28" stroke="white" stroke-width="1" fill="none" opacity="0.2"/>
+            <ellipse cx="200" cy="145" rx="60" ry="18" fill="white" opacity="0.08"/>
+          </svg>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <ellipse cx="30" cy="34" rx="22" ry="8" stroke="white" stroke-width="2.5" fill="none"/>
+            <ellipse cx="30" cy="30" rx="16" ry="6" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <circle cx="30" cy="28" r="10" fill="white" opacity="0.1" stroke="white" stroke-width="1"/>
+          </svg>
         </div>
-        <div class="po"><span class="po-tag">Fashion</span><h4>Fashion Brand Store</h4><p>Next.js · E-Commerce</p></div>
+        <div class="po"><span class="po-tag">Restaurant</span><h4>The Dosa Place</h4><p>Web Design · Menu · Virginia, USA</p></div>
       </div>
+
+    </div>
     </div>
   </section>
 
@@ -835,12 +1054,12 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
   <section style="background:var(--cr);padding:120px 6%;">
     <div class="rv"><div class="tl">What We Do</div><h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">Full-funnel <em>Marketing</em></h2><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;">From awareness to conversion — we cover every stage of the customer journey.</p></div>
     <div class="dm-grid">
-      <div class="dmc rv d1"><div class="dmic">🔍</div><div><h3>Search Engine Optimisation</h3><p>Dominate Google with keyword strategy, on-page SEO, link building, and technical audits that drive organic traffic long-term.</p></div></div>
-      <div class="dmc rv d2"><div class="dmic">📣</div><div><h3>Google Ads (PPC)</h3><p>High-intent paid campaigns on Google Search, Display, and Shopping — engineered for maximum ROI with every rupee.</p></div></div>
-      <div class="dmc rv d3"><div class="dmic">📱</div><div><h3>Social Media Marketing</h3><p>Instagram, Facebook, LinkedIn — compelling content strategies and ad campaigns that build audiences and drive real results.</p></div></div>
-      <div class="dmc rv d4"><div class="dmic">✉️</div><div><h3>Email Marketing</h3><p>Automated sequences and newsletters that nurture leads, retain customers, and generate revenue on autopilot.</p></div></div>
-      <div class="dmc rv d1"><div class="dmic">📊</div><div><h3>Analytics & Reporting</h3><p>Clear, honest reporting with actionable insights — you always know what's working and where to invest more.</p></div></div>
-      <div class="dmc rv d2"><div class="dmic">🎯</div><div><h3>Conversion Optimisation</h3><p>We analyse your funnel and remove friction — turning more of your existing traffic into leads and sales.</p></div></div>
+      <div class="dmc rv d1"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6M11 8v6" stroke-width="1.5"/></svg></div><div><h3>Search Engine Optimisation</h3><p>Dominate Google with keyword strategy, on-page SEO, link building, and technical audits that drive organic traffic long-term.</p></div></div>
+      <div class="dmc rv d2"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 010 8"/><path d="M22 5a10 10 0 010 14"/><path d="M3 9h3l7-4v14l-7-4H3a1 1 0 01-1-1v-4a1 1 0 011-1z"/></svg></div><div><h3>Google Ads (PPC)</h3><p>High-intent paid campaigns on Google Search, Display, and Shopping — engineered for maximum ROI with every rupee.</p></div></div>
+      <div class="dmc rv d3"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M5 18h14M9 6h6M12 21.5v.5"/></svg></div><div><h3>Social Media Marketing</h3><p>Instagram, Facebook, LinkedIn — compelling content strategies and ad campaigns that build audiences and drive real results.</p></div></div>
+      <div class="dmc rv d4"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 7l10 7 10-7"/></svg></div><div><h3>Email Marketing</h3><p>Automated sequences and newsletters that nurture leads, retain customers, and generate revenue on autopilot.</p></div></div>
+      <div class="dmc rv d1"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="14" width="4" height="7"/><rect x="9.5" y="9" width="4" height="12"/><rect x="16" y="4" width="4" height="17"/><path d="M2 22h20" stroke-width="1.5"/></svg></div><div><h3>Analytics & Reporting</h3><p>Clear, honest reporting with actionable insights — you always know what's working and where to invest more.</p></div></div>
+      <div class="dmc rv d2"><div class="dmic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4511E" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#F4511E"/><path d="M12 3V1M12 23v-2M3 12H1M23 12h-2"/></svg></div><div><h3>Conversion Optimisation</h3><p>We analyse your funnel and remove friction — turning more of your existing traffic into leads and sales.</p></div></div>
     </div>
   </section>
 
@@ -857,56 +1076,282 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
 </div>
 
 <!-- ═══════════ BLOG ═══════════ -->
-<div class="page" id="pg-blog">
-  <section style="padding:160px 6% 120px;background:var(--cr);position:relative;overflow:hidden;">
-    <svg style="position:absolute;top:0;right:0;opacity:0.04;pointer-events:none;" width="500" height="500" viewBox="0 0 500 500"><circle cx="400" cy="100" r="350" fill="none" stroke="#F4511E" stroke-width="2"/><circle cx="400" cy="100" r="250" fill="none" stroke="#F4511E" stroke-width="1.5"/><circle cx="400" cy="100" r="150" fill="none" stroke="#F4511E" stroke-width="1"/></svg>
-    <div class="rv"><div class="tl">Insights & Ideas</div><h1 style="font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;margin-top:14px;">The DigiPaddles <em>Blog</em></h1><p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;max-width:480px;">Actionable insights on web design, digital marketing, and brand building — straight from our team.</p></div>
-    <div class="blog-grid">
-      <div class="blc rv d1">
-        <div class="bli" style="background:linear-gradient(135deg,#1a1a2e,#F4511E);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><rect x="30" y="30" width="340" height="140" rx="8" fill="none" stroke="white" stroke-width="2"/><line x1="30" y1="65" x2="370" y2="65" stroke="white" stroke-width="1"/><circle cx="50" cy="47" r="6" fill="white" opacity="0.5"/></svg>
-          💻<span class="blcat">Web Design</span>
-        </div>
-        <div class="blb"><div class="blm">June 2025 <span>5 min read</span></div><h3>10 Web Design Trends Dominating 2025</h3><p>From immersive 3D elements to AI-powered personalisation — the trends shaping the web.</p><span class="blr">Read More →</span></div>
-      </div>
-      <div class="blc rv d2">
-        <div class="bli" style="background:linear-gradient(135deg,#134e5e,#71b280);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><circle cx="200" cy="100" r="80" fill="none" stroke="white" stroke-width="2"/><path d="M140 100 L260 100M200 40 L200 160" stroke="white" stroke-width="1"/></svg>
-          🔍<span class="blcat">SEO</span>
-        </div>
-        <div class="blb"><div class="blm">May 2025 <span>7 min read</span></div><h3>How to Rank #1 on Google in Hyderabad</h3><p>A step-by-step local SEO guide for small businesses looking to dominate search.</p><span class="blr">Read More →</span></div>
-      </div>
-      <div class="blc rv d3">
-        <div class="bli" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><polygon points="200,20 380,180 20,180" fill="none" stroke="white" stroke-width="2"/><polygon points="200,60 320,180 80,180" fill="none" stroke="white" stroke-width="1" opacity="0.5"/></svg>
-          🎨<span class="blcat">Branding</span>
-        </div>
-        <div class="blb"><div class="blm">April 2025 <span>6 min read</span></div><h3>Why Your Brand Colour Palette Matters More Than You Think</h3><p>The psychology of colour and how the right palette impacts customer perception.</p><span class="blr">Read More →</span></div>
-      </div>
-      <div class="blc rv d1">
-        <div class="bli" style="background:linear-gradient(135deg,#2d1b69,#11998e);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><path d="M40 160 L100 80 L160 120 L220 50 L280 100 L340 30" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-          📊<span class="blcat">Marketing</span>
-        </div>
-        <div class="blb"><div class="blm">March 2025 <span>8 min read</span></div><h3>The Ultimate Guide to Meta Ads for Indian Businesses</h3><p>Everything you need to know about profitable Facebook and Instagram campaigns in India.</p><span class="blr">Read More →</span></div>
-      </div>
-      <div class="blc rv d2">
-        <div class="bli" style="background:linear-gradient(135deg,#373B44,#4286f4);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><rect x="60" y="60" width="80" height="100" rx="4" fill="white" opacity="0.1"/><rect x="160" y="40" width="80" height="120" rx="4" fill="white" opacity="0.1"/><rect x="260" y="80" width="80" height="80" rx="4" fill="white" opacity="0.1"/></svg>
-          ⚡<span class="blcat">Web Design</span>
-        </div>
-        <div class="blb"><div class="blm">February 2025 <span>4 min read</span></div><h3>Why Page Speed is Your #1 Conversion Killer</h3><p>A slow website is costing you customers. Here's how to diagnose and fix it today.</p><span class="blr">Read More →</span></div>
-      </div>
-      <div class="blc rv d3">
-        <div class="bli" style="background:linear-gradient(135deg,#f8a04b,#c0392b);">
-          <svg class="bli-gfx" viewBox="0 0 400 200"><circle cx="120" cy="100" r="60" fill="none" stroke="white" stroke-width="2"/><circle cx="240" cy="100" r="60" fill="none" stroke="white" stroke-width="2"/><circle cx="180" cy="60" r="60" fill="none" stroke="white" stroke-width="2"/></svg>
-          🚀<span class="blcat">Branding</span>
-        </div>
-        <div class="blb"><div class="blm">January 2025 <span>5 min read</span></div><h3>5 Branding Mistakes Killing Your Business</h3><p>The most common blunders we see — and exactly how to correct them before they cost you more.</p><span class="blr">Read More →</span></div>
-      </div>
+
+<!-- ═══════════ CLIENTS ═══════════ -->
+<div class="page" id="pg-clients">
+
+  <section class="clients-hero" style="position:relative;">
+    <div style="position:absolute;inset:0;pointer-events:none;">
+      <svg viewBox="0 0 1440 500" style="width:100%;height:100%;position:absolute;inset:0;" preserveAspectRatio="xMidYMid slice">
+        <defs><radialGradient id="chg" cx="80%" cy="30%" r="50%"><stop offset="0%" stop-color="#F4511E" stop-opacity="0.1"/><stop offset="100%" stop-color="#F4511E" stop-opacity="0"/></radialGradient></defs>
+        <rect width="1440" height="500" fill="url(#chg)"/>
+        <circle cx="1200" cy="100" r="300" fill="none" stroke="rgba(244,81,30,0.06)" stroke-width="1"/>
+        <circle cx="1200" cy="100" r="200" fill="none" stroke="rgba(244,81,30,0.05)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div style="position:relative;z-index:2;">
+      <div class="tl" style="color:rgba(255,255,255,0.3);">Our Clients</div>
+      <h1 style="margin-top:14px;">Brands we've <em>paddled</em><br>forward</h1>
+      <p>From Hyderabad to Vancouver — we're proud to work with amazing businesses across the globe.</p>
     </div>
   </section>
-  <div class="ctab"><div class="ctab-content"><h2>Want us to grow your brand's <em>digital presence</em>?</h2><button class="bw" onclick="go('contact')">Get in Touch →</button></div></div>
+
+  <section class="clients-grid-sec">
+    <div class="sh rv" style="margin-bottom:0;">
+      <div class="tl">Our Portfolio</div>
+      <h2 style="margin-top:14px;font-size:clamp(2rem,3.8vw,3.2rem);">7 brands. Multiple <em>cities</em>. One team.</h2>
+      <p style="font-size:0.95rem;color:var(--gy);line-height:1.85;margin-top:12px;">Every client is a long-term partnership — not just a project.</p>
+    </div>
+    <div class="cl-grid">
+
+      <!-- ExpressLuv -->
+      <div class="cl-card rv d1">
+        <div class="cl-card-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="18" width="24" height="24" rx="4" fill="#e63946"/>
+  <path d="M8 30 L14 24 L20 30 L14 36Z" fill="white"/>
+  <text x="32" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#1a1a1a" letter-spacing="-0.5">Express</text>
+  <text x="128" y="36" font-family="Georgia,serif" font-size="22" font-weight="900" font-style="italic" fill="#e63946" letter-spacing="-0.5">luv</text>
+</svg></div>
+        <div class="cl-card-name">ExpressLuv</div>
+        <div class="cl-card-industry">Gifting & Lifestyle</div>
+        <div class="cl-card-loc">📍 Vancouver, Canada</div>
+        <a class="cl-card-url" href="https://expressluv.com" target="_blank">expressluv.com ↗</a>
+      </div>
+
+      <!-- OccasionKart -->
+      <div class="cl-card rv d2">
+        <div class="cl-card-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="22" cy="30" r="16" fill="#FF6B9D" opacity="0.15"/>
+  <text x="10" y="35" font-family="Arial,sans-serif" font-size="20" fill="#FF6B9D">🎂</text>
+  <text x="44" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#1a1a1a" letter-spacing="-0.3">Occasion</text>
+  <text x="148" y="37" font-family="Georgia,serif" font-size="19" font-weight="900" fill="#FF6B9D" letter-spacing="-0.3">kart</text>
+</svg></div>
+        <div class="cl-card-name">OccasionKart</div>
+        <div class="cl-card-industry">Cakes & Celebrations</div>
+        <div class="cl-card-loc">📍 Hyderabad, India</div>
+        <a class="cl-card-url" href="https://occasionkart.com" target="_blank">occasionkart.com ↗</a>
+      </div>
+
+      <!-- Vihara Courtyard -->
+      <div class="cl-card rv d3">
+        <div class="cl-card-logo"><img src="data:image/png;base64,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" style="height:48px;width:auto;object-fit:contain;" alt="Vihara Courtyard"></div>
+        <div class="cl-card-name">Vihara Courtyard</div>
+        <div class="cl-card-industry">Real Estate & Homes</div>
+        <div class="cl-card-loc">📍 India</div>
+        <a class="cl-card-url" href="https://vihara.homes" target="_blank">vihara.homes ↗</a>
+      </div>
+
+      <!-- TekspotEDU -->
+      <div class="cl-card rv d1">
+        <div class="cl-card-logo"><svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0066CC"/><stop offset="100%" stop-color="#00AAFF"/></linearGradient></defs>
+  <rect x="2" y="12" width="38" height="36" rx="6" fill="url(#tg)"/>
+  <text x="8" y="38" font-family="monospace" font-size="18" font-weight="900" fill="white">&lt;/&gt;</text>
+  <text x="48" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#0066CC" letter-spacing="-0.5">Tekspot</text>
+  <text x="134" y="37" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="#00AAFF" letter-spacing="-0.5">EDU</text>
+</svg></div>
+        <div class="cl-card-name">TekspotEDU</div>
+        <div class="cl-card-industry">EdTech & Training</div>
+        <div class="cl-card-loc">📍 Bangalore, India</div>
+        <a class="cl-card-url" href="https://tekspotedu.com" target="_blank">tekspotedu.com ↗</a>
+      </div>
+
+      <!-- The Hyphen Konnect -->
+      <div class="cl-card rv d2">
+        <div class="cl-card-logo"><svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="24" width="28" height="12" rx="6" fill="#222"/>
+  <text x="38" y="37" font-family="Georgia,serif" font-size="17" font-weight="700" fill="#111" letter-spacing="0.2">The <tspan font-style="italic" fill="#F4511E">Hyphen</tspan> Konnect</text>
+</svg></div>
+        <div class="cl-card-name">The Hyphen Konnect</div>
+        <div class="cl-card-industry">Marketing & Consulting</div>
+        <div class="cl-card-loc">📍 India</div>
+        <a class="cl-card-url" href="https://thehyphenkonnect.com" target="_blank">thehyphenkonnect.com ↗</a>
+      </div>
+
+      <!-- The Dosa Place -->
+      <div class="cl-card rv d3">
+        <div class="cl-card-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="28" cy="30" r="18" fill="#F4A030" opacity="0.15"/>
+  <circle cx="28" cy="30" r="14" fill="none" stroke="#F4A030" stroke-width="2"/>
+  <circle cx="28" cy="30" r="8" fill="#F4A030" opacity="0.4"/>
+  <text x="54" y="28" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#1a1a1a">The Dosa</text>
+  <text x="54" y="46" font-family="Georgia,serif" font-size="15" font-weight="900" fill="#F4A030">Place</text>
+</svg></div>
+        <div class="cl-card-name">The Dosa Place</div>
+        <div class="cl-card-industry">Food & Restaurant</div>
+        <div class="cl-card-loc">📍 Virginia, USA</div>
+        <a class="cl-card-url" href="#" target="_blank">thedosaplace.com ↗</a>
+      </div>
+
+      <!-- Insure with SRI -->
+      <div class="cl-card rv d1" style="grid-column: 2;">
+        <div class="cl-card-logo"><svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1B4F8A"/><stop offset="100%" stop-color="#2E7DD1"/></linearGradient></defs>
+  <path d="M22 10 L36 16 L36 32 C36 40 22 48 22 48 C22 48 8 40 8 32 L8 16 Z" fill="url(#ig)"/>
+  <path d="M16 29 L20 33 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="44" y="29" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#1B4F8A" letter-spacing="0.3">INSURE</text>
+  <text x="44" y="46" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2E7DD1" letter-spacing="0.3">WITH SRI</text>
+</svg></div>
+        <div class="cl-card-name">Insure with SRI</div>
+        <div class="cl-card-industry">Insurance & Finance</div>
+        <div class="cl-card-loc">📍 Vancouver, Canada</div>
+        <a class="cl-card-url" href="#" target="_blank">insurewithsri.com ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <div style="background:var(--dk);padding:72px 6%;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.04);border-radius:20px;overflow:hidden;">
+      <div style="padding:40px;text-align:center;"><span style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:var(--or);display:block;line-height:1;margin-bottom:8px;">7</span><div style="font-size:0.74rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em;">Active Clients</div></div>
+      <div style="padding:40px;text-align:center;"><span style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:var(--or);display:block;line-height:1;margin-bottom:8px;">4</span><div style="font-size:0.74rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em;">Countries</div></div>
+      <div style="padding:40px;text-align:center;"><span style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:var(--or);display:block;line-height:1;margin-bottom:8px;">98%</span><div style="font-size:0.74rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em;">Retention Rate</div></div>
+      <div style="padding:40px;text-align:center;"><span style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:var(--or);display:block;line-height:1;margin-bottom:8px;">5★</span><div style="font-size:0.74rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em;">Google Rating</div></div>
+    </div>
+  </div>
+
+  <div class="ctab"><div class="ctab-content"><h2>Want to join our <em>client family</em>?</h2><button class="bw" onclick="go('contact')">Let's Talk →</button></div></div>
+</div>
+
+<div class="page" id="pg-blog">
+  <section style="padding:160px 6% 100px;background:var(--dk);position:relative;overflow:hidden;">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice">
+      <defs><radialGradient id="bhg" cx="70%" cy="30%" r="50%"><stop offset="0%" stop-color="#F4511E" stop-opacity="0.1"/><stop offset="100%" stop-color="#F4511E" stop-opacity="0"/></radialGradient></defs>
+      <rect width="1440" height="500" fill="url(#bhg)"/>
+      <circle cx="1100" cy="80" r="280" fill="none" stroke="rgba(244,81,30,0.06)" stroke-width="1"/>
+      <circle cx="1100" cy="80" r="180" fill="none" stroke="rgba(244,81,30,0.04)" stroke-width="1"/>
+      <pattern id="bdots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.8" fill="rgba(255,255,255,0.06)"/></pattern>
+      <rect width="1440" height="500" fill="url(#bdots)"/>
+    </svg>
+    <div style="position:relative;z-index:2;max-width:680px;">
+      <div class="tl" style="color:rgba(255,255,255,0.3);">Insights & Ideas</div>
+      <h1 style="font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;color:#fff;margin-top:14px;line-height:1.05;">The DigiPaddles <em>Blog</em></h1>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.4);line-height:1.9;margin-top:14px;">Actionable insights on web design, digital marketing, and brand building — written by practitioners, not theorists.</p>
+    </div>
+  </section>
+
+  <!-- BLOG LISTING VIEW -->
+  <div id="blog-list">
+    <section style="padding:100px 6%;background:var(--cr);">
+
+      <!-- Featured post -->
+      <div class="rv" style="background:var(--wh);border-radius:24px;overflow:hidden;border:1px solid var(--bd);display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:28px;cursor:pointer;transition:all 0.35s;" onclick="showPost(0)" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.1)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+        <div style="height:100%;min-height:320px;background:linear-gradient(135deg,#0a0a1a,#F4511E);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15;" viewBox="0 0 600 400" fill="none">
+            <rect x="40" y="40" width="520" height="320" rx="12" stroke="white" stroke-width="2"/>
+            <line x1="40" y1="90" x2="560" y2="90" stroke="white" stroke-width="1.5"/>
+            <circle cx="70" cy="65" r="8" fill="white" opacity="0.6"/><circle cx="95" cy="65" r="8" fill="white" opacity="0.6"/><circle cx="120" cy="65" r="8" fill="white" opacity="0.6"/>
+            <path d="M80 180 L160 130 L240 160 L340 110 L440 140 L520 100" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <rect x="80" y="240" width="440" height="14" rx="3" fill="white" opacity="0.1"/>
+            <rect x="80" y="262" width="300" height="10" rx="3" fill="white" opacity="0.07"/>
+          </svg>
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="8" y="8" width="64" height="64" rx="10" stroke="white" stroke-width="2" fill="none" opacity="0.3"/><path d="M20 40h40M40 20v40" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <span style="position:absolute;top:20px;left:20px;background:var(--or);color:#fff;font-size:0.58rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:4px 12px;border-radius:100px;">Featured · Web Design</span>
+        </div>
+        <div style="padding:48px;">
+          <div style="font-size:0.7rem;color:var(--gy);margin-bottom:12px;display:flex;align-items:center;gap:8px;"><span>January 2025</span><span>·</span><span>8 min read</span></div>
+          <h2 style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;line-height:1.2;margin-bottom:14px;">10 Web Design Trends Dominating <em>2025</em></h2>
+          <p style="font-size:0.88rem;color:var(--gy);line-height:1.85;margin-bottom:24px;">From AI-powered personalisation to immersive scroll experiences — the design shifts you need to know to keep your brand ahead of the curve this year.</p>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--or2));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:#fff;">D</div>
+            <div><div style="font-size:0.84rem;font-weight:700;">DigiPaddles Team</div><div style="font-size:0.72rem;color:var(--gy);">Web Design & Strategy</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+        <div class="blc rv d1" onclick="showPost(1)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#0d2137,#0066CC);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><circle cx="200" cy="100" r="70" stroke="white" stroke-width="2" fill="none" opacity="0.4"/><path d="M130 100L270 100M200 30L200 170" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/><circle cx="200" cy="100" r="30" stroke="white" stroke-width="1.5" fill="none" opacity="0.25"/></svg>
+            <span class="blcat">SEO</span>
+          </div>
+          <div class="blb">
+            <div class="blm">February 2025 <span>7 min read</span></div>
+            <h3>How to Rank #1 on Google: A Local SEO Guide for Hyderabad Businesses</h3>
+            <p>Everything you need to dominate local search — Google Business, citations, reviews, and on-page signals explained.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+        <div class="blc rv d2" onclick="showPost(2)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#1a0820,#9b59b6);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><polygon points="200,20 370,180 30,180" stroke="white" stroke-width="2" fill="none" opacity="0.3"/><polygon points="200,55 310,180 90,180" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/></svg>
+            <span class="blcat">Branding</span>
+          </div>
+          <div class="blb">
+            <div class="blm">March 2025 <span>6 min read</span></div>
+            <h3>Why Your Brand Colour Palette Matters More Than You Think</h3>
+            <p>The psychology of colour in branding — and how the right palette builds trust, drives emotion, and converts visitors.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+        <div class="blc rv d3" onclick="showPost(3)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#0d1f12,#27ae60);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><path d="M40 160L100 80L160 120L220 50L280 100L360 30" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/><circle cx="360" cy="30" r="10" fill="white" opacity="0.3"/></svg>
+            <span class="blcat">Marketing</span>
+          </div>
+          <div class="blb">
+            <div class="blm">April 2025 <span>8 min read</span></div>
+            <h3>The Complete Guide to Meta Ads for Indian Businesses in 2025</h3>
+            <p>From campaign structure to creative strategy — how to run profitable Facebook and Instagram ads in the Indian market.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+        <div class="blc rv d1" onclick="showPost(4)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#1a0a00,#e67e22);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><rect x="50" y="50" width="300" height="120" rx="8" stroke="white" stroke-width="2" fill="none" opacity="0.2"/><rect x="70" y="70" width="80" height="60" rx="4" fill="white" opacity="0.08"/><rect x="170" y="70" width="160" height="14" rx="3" fill="white" opacity="0.12"/><rect x="170" y="92" width="120" height="10" rx="3" fill="white" opacity="0.08"/></svg>
+            <span class="blcat">Web Design</span>
+          </div>
+          <div class="blb">
+            <div class="blm">May 2025 <span>5 min read</span></div>
+            <h3>Why Page Speed is Your #1 Conversion Killer (And How to Fix It)</h3>
+            <p>A 1-second delay in load time can drop conversions by 7%. Here's how to audit and fix your site speed today.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+        <div class="blc rv d2" onclick="showPost(5)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#1a0505,#c0392b);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><circle cx="130" cy="100" r="55" stroke="white" stroke-width="2" fill="none" opacity="0.3"/><circle cx="240" cy="100" r="55" stroke="white" stroke-width="2" fill="none" opacity="0.3"/><circle cx="185" cy="70" r="55" stroke="white" stroke-width="2" fill="none" opacity="0.3"/></svg>
+            <span class="blcat">Branding</span>
+          </div>
+          <div class="blb">
+            <div class="blm">June 2025 <span>5 min read</span></div>
+            <h3>5 Branding Mistakes That Are Silently Killing Your Business</h3>
+            <p>From inconsistent visuals to a weak value proposition — the most common brand errors we fix for clients and how to avoid them.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+        <div class="blc rv d3" onclick="showPost(6)" style="cursor:pointer;">
+          <div class="bli" style="background:linear-gradient(135deg,#001233,#2980b9);">
+            <svg class="bli-gfx" viewBox="0 0 400 200" fill="none"><rect x="60" y="40" width="280" height="120" rx="8" stroke="white" stroke-width="1.5" fill="none" opacity="0.2"/><path d="M100 160L100 80L150 100L200 60L250 90L300 70L300 160" fill="white" opacity="0.06" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span class="blcat">Marketing</span>
+          </div>
+          <div class="blb">
+            <div class="blm">July 2025 <span>6 min read</span></div>
+            <h3>How We Grew a Hyderabad Startup's Traffic by 3x in 90 Days</h3>
+            <p>A real case study — the exact SEO, content, and paid strategy we used to triple organic traffic for a local client.</p>
+            <span class="blr">Read Article →</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <div class="ctab"><div class="ctab-content"><h2>Want insights like these for <em>your</em> brand?</h2><button class="bw" onclick="go('contact')">Get in Touch →</button></div></div>
+  </div>
+
+  <!-- BLOG POST READER -->
+  <div id="blog-post" style="display:none;">
+    <div style="padding:100px 6% 80px;background:var(--cr);max-width:820px;margin:0 auto;" id="blog-post-content"></div>
+    <div style="padding:0 6% 80px;max-width:820px;margin:0 auto;">
+      <button onclick="closeBlog()" style="display:inline-flex;align-items:center;gap:8px;background:var(--dk);color:#fff;padding:13px 28px;font-size:0.78rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;border:none;cursor:pointer;border-radius:4px;">← Back to Blog</button>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════ CONTACT ═══════════ -->
@@ -918,7 +1363,7 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
         <h1 class="ct-h1" style="font-family:'Fraunces',serif;">Let's build something <em>great</em></h1>
         <p class="ct-p">Tell us about your project and we'll get back to you within 24 hours with a free consultation.</p>
         <div class="ct-det"><div class="ct-det-ic">📞</div><div class="ct-det-tx"><strong>Phone / WhatsApp</strong><span>+91 90632 10478</span></div></div>
-        <div class="ct-det"><div class="ct-det-ic">✉️</div><div class="ct-det-tx"><strong>Email</strong><span>hello@digipaddles.com</span></div></div>
+        <div class="ct-det"><div class="ct-det-ic">✉️</div><div class="ct-det-tx"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f8909d949497b89c919f9188999c9c949d8bd69b9795">[email&#160;protected]</a></span></div></div>
         <div class="ct-det"><div class="ct-det-ic">📍</div><div class="ct-det-tx"><strong>Location</strong><span>Hyderabad, Telangana, India</span></div></div>
         <div class="ct-det"><div class="ct-det-ic">⏰</div><div class="ct-det-tx"><strong>Response Time</strong><span>Within 24 hours</span></div></div>
         <div style="margin-top:36px;padding:28px;background:var(--dk);border-radius:18px;position:relative;overflow:hidden;">
@@ -978,12 +1423,12 @@ footer::before{content:'';position:absolute;top:-200px;right:-100px;width:400px;
     </div>
     <div class="fc"><h5>Company</h5><a onclick="go('home')">Home</a><a onclick="go('about')">About Us</a><a onclick="go('blog')">Blogs</a><a onclick="go('contact')">Contact</a></div>
     <div class="fc"><h5>Services</h5><a onclick="go('web')">Web Design</a><a onclick="go('dm')">Digital Marketing</a><a onclick="go('dm')">SEO Optimisation</a><a onclick="go('web')">UI/UX Design</a></div>
-    <div class="fc"><h5>Contact</h5><a href="tel:+919063210478">+91 90632 10478</a><a href="mailto:hello@digipaddles.com">hello@digipaddles.com</a><a>Hyderabad, India</a></div>
+    <div class="fc"><h5>Contact</h5><a href="tel:+919063210478">+91 90632 10478</a><a href="/cdn-cgi/l/email-protection#eb838e878784ab8f828c829b8a8f8f878e98c5888486"><span class="__cf_email__" data-cfemail="87efe2ebebe8c7e3eee0eef7e6e3e3ebe2f4a9e4e8ea">[email&#160;protected]</span></a><a>Hyderabad, India</a></div>
   </div>
   <div class="fb-bot"><p>© 2025 DigiPaddles. All rights reserved.</p><p>Made with ♥ in Hyderabad</p></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── CURSOR ──
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-ring');
@@ -997,7 +1442,7 @@ document.querySelectorAll('a,button,.sc,.tc,.blc,.pi,.tec,.vc,.wc,.dmc').forEach
 });
 
 // ── PAGE ROUTING ──
-const pages = ['home','about','web','dm','blog','contact'];
+const pages = ['home','about','web','dm','clients','blog','contact'];
 function go(id) {
   pages.forEach(p => {
     document.getElementById('pg-'+p).classList.remove('active');
@@ -1038,16 +1483,4 @@ revealAll();
 
 // ── ABOUT PAGE TWO-COL RESPONSIVE ──
 const style = document.createElement('style');
-style.textContent = '@media(max-width:768px){.about-two-col{grid-template-columns:1fr!important;}}';
-document.head.appendChild(style);
-
-// ── FORM ──
-function submitForm() {
-  const btn = document.getElementById('fsb');
-  btn.textContent = '✅ Sent! We\'ll reply within 24 hours.';
-  btn.style.background = '#27ae60';
-  btn.disabled = true;
-}
-</script>
-</body>
-</html>
+style.t
