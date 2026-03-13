@@ -1243,4 +1243,16 @@ revealAll();
 
 // ── ABOUT PAGE TWO-COL RESPONSIVE ──
 const style = document.createElement('style');
-style.t
+style.textContent = '@media(max-width:768px){.about-two-col{grid-template-columns:1fr!important;}}';
+document.head.appendChild(style);
+
+// ── FORM ──
+function submitForm() {
+  const btn = document.getElementById('fsb');
+  btn.textContent = '✅ Sent! We\'ll reply within 24 hours.';
+  btn.style.background = '#27ae60';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
